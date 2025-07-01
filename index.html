@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stickman RPG Game</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    canvas {
+      border: 2px solid #fff;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    #adminPanel, #hud, #shopUI {
+      margin-top: 10px;
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    button {
+      padding: 10px;
+      font-size: 14px;
+    }
+    #hud {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      color: white;
+      font-family: sans-serif;
+    }
+    #shopUI {
+      display: none;
+      position: absolute;
+      background: rgba(0,0,0,0.8);
+      padding: 10px;
+      border: 2px solid white;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      flex-direction: column;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="gameCanvas" width="800" height="600"></canvas>
+  <div id="hud">
+    <div>HP: <span id="playerHp">100</span></div>
+    <div>Gold: <span id="playerGold">0</span></div>
+    <div>Senjata: <span id="currentWeapon">pistol</span></div>
+  </div>
+  <div id="adminPanel">
+    <button onclick="teleport()">Teleport</button>
+    <button onclick="heal()">Heal</button>
+    <button onclick="spawnItem()">Spawn</button>
+    <button onclick="switchMap()">Ganti Map</button>
+    <button onclick="fireBullet()">Tembak</button>
+    <button onclick="switchWeapon()">Ganti Senjata</button>
+  </div>
+  <div id="shopUI">
+    <strong>Toko:</strong>
+    <button onclick="buy('gold', 10)">Beli Gold (+10)</button>
+    <button onclick="buy('laser', 0)">Beli Senjata Laser</button>
+    <button onclick="closeShop()">Tutup</button>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
